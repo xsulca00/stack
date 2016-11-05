@@ -75,16 +75,23 @@ enum	tokenTypes {
 	TOK_LEFT_BRACE,		// {
 	TOK_RIGHT_BRACE,	// } 
 	TOK_ASSIGN,		// =
-	TOK_EOF};		// end-of-file
+	TOK_EOF,
+	TOK_ERROR
+	};		// end-of-file
 
 
 /*---------------------------------------------------------------------------*/
 //	List of public functions provided by scanner 	
 /*---------------------------------------------------------------------------*/
 
+// Opens a source file 'filename'
 int	scanner_openFile(char* fileName);
 
+// Closes the source file
 int	scanner_closeFile();
 
+// Return tokens from the start of file
+int	scanner_rewind();
 
+// Process another token, update g_lastToken structure and return OK on succ 
 int	getToken();
